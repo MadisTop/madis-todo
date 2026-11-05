@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "productName": "madis-todo",
+  "displayName": "Madis Todo",
+  "publisher": "Madis",
+  "identifier": "top.madis.todo",
+  "binary": "madis-todo-desktop",
+  "release": {
+    "state": "unpublished",
+    "version": null,
+    "latestPublished": false,
+    "endToEndVerified": false
+  },
+  "targets": [
+    {
+      "id": "windows-x64",
+      "os": "windows",
+      "arch": "x86_64",
+      "rustTarget": "x86_64-pc-windows-msvc",
+      "formats": ["nsis", "msi"],
+      "extensions": [".exe", ".msi"],
+      "packaging": "not-verified",
+      "nativeSigning": "not-verified",
+      "notarization": "not-applicable",
+      "updater": "not-implemented"
+    },
+    {
+      "id": "linux-x64",
+      "os": "linux",
+      "arch": "x86_64",
+      "rustTarget": "x86_64-unknown-linux-gnu",
+      "formats": ["appimage", "deb", "rpm"],
+      "extensions": [".AppImage", ".deb", ".rpm"],
+      "packaging": "not-verified",
+      "nativeSigning": "not-verified",
+      "notarization": "not-applicable",
+      "updater": "not-implemented"
+    },
+    {
+      "id": "macos-x64",
+      "os": "macos",
+      "arch": "x86_64",
+      "rustTarget": "x86_64-apple-darwin",
+      "formats": ["dmg", "app.tar.gz"],
+      "extensions": [".dmg", ".app.tar.gz"],
+      "packaging": "not-verified",
+      "nativeSigning": "not-verified",
+      "notarization": "not-verified",
+      "updater": "not-implemented"
+    },
+    {
+      "id": "macos-arm64",
+      "os": "macos",
+      "arch": "aarch64",
+      "rustTarget": "aarch64-apple-darwin",
+      "formats": ["dmg", "app.tar.gz"],
+      "extensions": [".dmg", ".app.tar.gz"],
+      "packaging": "not-verified",
+      "nativeSigning": "not-verified",
+      "notarization": "not-verified",
+      "updater": "not-implemented"
+    }
+  ],
+  "installation": {
+    "windowsScope": "current-user",
+    "windowsDirectory": "%LOCALAPPDATA%\\Madis\\Madis Todo",
+    "uninstallPreserveUserData": true,
+    "dataDirectories": {
+      "windows": "%LOCALAPPDATA%\\top.madis.todo",
+      "macos": "~/Library/Application Support/top.madis.todo",
+      "linux": "$XDG_DATA_HOME/top.madis.todo",
+      "linuxFallback": "~/.local/share/top.madis.todo"
+    },
+    "state": "specification-only"
+  },
+  "updates": {
+    "state": "specification-only",
+    "signatureAlgorithm": "minisign",
+    "trustedPublicKey": null,
+    "signedBinding": ["identifier", "version", "os", "arch", "format", "size", "sha256"],
+    "publicationOrder": ["packages", "signatures-and-bound-metadata", "readback-verification", "latest"],
+    "requireExitBeforeInstall": true,
+    "rejectUntrustedDowngrade": true
+  }
+}
