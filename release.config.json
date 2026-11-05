@@ -17,8 +17,14 @@
       "os": "windows",
       "arch": "x86_64",
       "rustTarget": "x86_64-pc-windows-msvc",
-      "formats": ["nsis", "msi"],
-      "extensions": [".exe", ".msi"],
+      "formats": [
+        "nsis",
+        "msi"
+      ],
+      "extensions": [
+        ".exe",
+        ".msi"
+      ],
       "packaging": "not-verified",
       "nativeSigning": "not-verified",
       "notarization": "not-applicable",
@@ -29,8 +35,16 @@
       "os": "linux",
       "arch": "x86_64",
       "rustTarget": "x86_64-unknown-linux-gnu",
-      "formats": ["appimage", "deb", "rpm"],
-      "extensions": [".AppImage", ".deb", ".rpm"],
+      "formats": [
+        "appimage",
+        "deb",
+        "rpm"
+      ],
+      "extensions": [
+        ".AppImage",
+        ".deb",
+        ".rpm"
+      ],
       "packaging": "not-verified",
       "nativeSigning": "not-verified",
       "notarization": "not-applicable",
@@ -41,8 +55,14 @@
       "os": "macos",
       "arch": "x86_64",
       "rustTarget": "x86_64-apple-darwin",
-      "formats": ["dmg", "app.tar.gz"],
-      "extensions": [".dmg", ".app.tar.gz"],
+      "formats": [
+        "dmg",
+        "app.tar.gz"
+      ],
+      "extensions": [
+        ".dmg",
+        ".app.tar.gz"
+      ],
       "packaging": "not-verified",
       "nativeSigning": "not-verified",
       "notarization": "not-verified",
@@ -53,8 +73,14 @@
       "os": "macos",
       "arch": "aarch64",
       "rustTarget": "aarch64-apple-darwin",
-      "formats": ["dmg", "app.tar.gz"],
-      "extensions": [".dmg", ".app.tar.gz"],
+      "formats": [
+        "dmg",
+        "app.tar.gz"
+      ],
+      "extensions": [
+        ".dmg",
+        ".app.tar.gz"
+      ],
       "packaging": "not-verified",
       "nativeSigning": "not-verified",
       "notarization": "not-verified",
@@ -71,15 +97,40 @@
       "linux": "$XDG_DATA_HOME/top.madis.todo",
       "linuxFallback": "~/.local/share/top.madis.todo"
     },
-    "state": "specification-only"
+    "state": "templates-added-not-verified"
   },
   "updates": {
     "state": "specification-only",
     "signatureAlgorithm": "minisign",
     "trustedPublicKey": null,
-    "signedBinding": ["identifier", "version", "os", "arch", "format", "size", "sha256"],
-    "publicationOrder": ["packages", "signatures-and-bound-metadata", "readback-verification", "latest"],
+    "signedBinding": [
+      "identifier",
+      "version",
+      "sourceSha",
+      "buildSha",
+      "distributionSha",
+      "target",
+      "os",
+      "arch",
+      "format",
+      "name",
+      "size",
+      "sha256",
+      "url",
+      "signature"
+    ],
+    "publicationOrder": [
+      "packages",
+      "signatures-and-bound-metadata",
+      "readback-verification",
+      "latest"
+    ],
     "requireExitBeforeInstall": true,
-    "rejectUntrustedDowngrade": true
+    "rejectUntrustedDowngrade": true,
+    "enabled": false,
+    "updaterDependencyApproved": false,
+    "metadataEndpoint": null,
+    "packageBaseUrl": null,
+    "metadataSchemaVersion": 1
   }
 }
