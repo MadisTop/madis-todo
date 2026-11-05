@@ -2,6 +2,16 @@
 
 **尚未发布。** 本仓当前只有分发规范与配置，没有可供下载的正式版本、安装包或自动更新服务；不提供占位下载地址。产品名 **Madis Todo**，发布者 **Madis**，应用标识 **`top.madis.todo`**。
 
+## 三仓库与职责
+
+| 仓库 | 职责与当前状态 |
+| --- | --- |
+| [madis-todo-source](https://github.com/MadisTop/madis-todo-source) | Rust + Slint 客户端、SQLite 存储、业务测试和实施计划；正式基础版开发中。 |
+| [madis-todo-build](https://github.com/MadisTop/madis-todo-build) | 固定源码提交的四平台原生编译核验；目前仅手动核验骨架，不等于安装打包或正式发布。 |
+| [madis-todo](https://github.com/MadisTop/madis-todo) | 产品说明、分发配置及未来正式发布入口；当前尚未发布，没有正式下载或更新服务。 |
+
+三个仓库统一产品名 **Madis Todo**、发布者 **Madis**、标识 **`top.madis.todo`**，默认分支为 `main`。仓库描述、主题标签和主页应与各自职责及实际发布状态一致；产品入口统一指向分发仓，不将开发构建标记为正式发行。
+
 ## 平台范围
 
 | 平台 | 架构 | 规划格式 | 当前边界 |
