@@ -15,6 +15,8 @@ Madis Todo：基于 Rust、Slint 和 SQLite 的轻量离线待办应用，支持
 
 Linux 图形会话使用 X11 或 XWayland。选择与系统及处理器架构匹配的安装包，各下载入口提供的格式以对应版本的附件列表为准。
 
+安装包命名为 `madis-todo_<版本>_<目标><格式后缀>`，例如 `madis-todo_0.1.0_windows-x64-setup.exe`；内部可执行文件仍为 `madis-todo-desktop`，不因安装包改名而变更程序目录或数据位置。各版本实际附件以发布页面为准。
+
 ## 下载入口
 
 - [GitHub 发布页面](https://github.com/MadisTop/madis-todo/releases)

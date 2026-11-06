@@ -5,6 +5,7 @@
   "publisher": "Madis",
   "identifier": "top.madis.todo",
   "binary": "madis-todo-desktop",
+  "packagePrefix": "madis-todo",
   "release": {
     "state": "unpublished",
     "version": null,
