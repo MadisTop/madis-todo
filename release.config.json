@@ -9,7 +9,27 @@
     "state": "unpublished",
     "version": null,
     "latestPublished": false,
-    "endToEndVerified": false
+    "endToEndVerified": false,
+    "test": {
+      "tag": "v0.1.0-test.1",
+      "version": "0.1.0",
+      "sourceSha": "b774d3c9fcf3946eabb51a822f9122821819f0cd",
+      "buildSha": "0d9018197bac9b39cf7b083df5aee254e89f17b4",
+      "distributionSha": "684c016da9141558da17cd0bfcd0ddd7068d0b2e",
+      "packageRunId": "42182592789",
+      "private": true,
+      "github": {
+        "state": "published-readback-verified",
+        "releaseId": 436249165,
+        "assetCount": 10
+      },
+      "gitee": {
+        "state": "published-readback-verified",
+        "releaseId": 1279885,
+        "assetCount": 9,
+        "publishRunId": "42193063324"
+      }
+    }
   },
   "targets": [
     {
