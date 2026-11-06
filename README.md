@@ -1,42 +1,46 @@
 # Madis Todo
 
-**尚未发布。** 产品名 **Madis Todo**，发布者 **Madis**，应用标识 **`top.madis.todo`**。三个 GitHub 仓库及两个 Gitee 仓库当前均保持私有，测试版与正式版分开管理。
+Madis Todo：基于 Rust、Slint 和 SQLite 的轻量离线待办应用，支持任务管理、计划日期、重复任务、日历搜索与备份恢复。
 
-Madis Todo 是 Rust + Slint 开发的紧凑待办软件，不依赖 WebView。主窗口与始终置顶的浮窗共用数据，支持行内编辑、计划日期、重复任务、日历搜索、明暗主题、贴边收起、备份与恢复。
+发布者 **Madis**，应用标识 **`top.madis.todo`**。
 
-## 平台与当前状态
+## 支持平台
 
-| 平台 | 已构建并回读的候选格式 | 尚未验收的边界 |
-| --- | --- | --- |
-| Windows x64 | NSIS `.exe`、MSI `.msi` | 原生签名、干净系统安装/升级/卸载及退出更新 |
-| Linux x64 | `.AppImage`、`.deb`、`.rpm` | 原生签名、运行依赖及安装/升级/卸载 |
-| macOS Intel | `.dmg`、`.app.tar.gz` | Developer ID、Apple 公证及安装更新 |
-| macOS ARM | `.dmg`、`.app.tar.gz` | Developer ID、Apple 公证及安装更新 |
+| 平台 | 安装包格式 |
+| --- | --- |
+| Windows x64 | NSIS `.exe`、MSI `.msi` |
+| Linux x64 | `.AppImage`、`.deb`、`.rpm` |
+| macOS Intel | `.dmg`、`.app.tar.gz` |
+| macOS Apple Silicon | `.dmg`、`.app.tar.gz` |
 
-四个平台的九个候选包已经在同一轮 CI 完成打包、上传和下载回读。候选构建成功不是正式发布，也不等于所有实机交互已经验收。
+Linux 图形会话使用 X11 或 XWayland。选择与系统及处理器架构匹配的安装包，各下载入口提供的格式以对应版本的附件列表为准。
 
-## 安装与数据位置
+## 下载入口
 
-Windows 采用当前用户安装，程序目录为 `%LOCALAPPDATA%\Madis\Madis Todo`。数据与程序分开存放：
+- [GitHub 发布页面](https://github.com/MadisTop/madis-todo/releases)
+- [Gitee 发布页面](https://gitee.com/madis/madis-todo/releases)
+
+从发布页面选择版本并阅读该版本的变更说明，不使用来源不明的转载包。
+
+## 安装与使用
+
+- Windows：运行 `.exe` 或 `.msi`，按引导安装到当前用户目录；升级时沿用原安装格式。
+- Linux：为 AppImage 添加执行权限后运行，或使用系统包管理器安装 DEB/RPM。
+- macOS：打开 DMG 并将应用复制到应用目录，或解压应用归档后运行。
+- 在主窗口或置顶浮窗中新增和编辑任务；计划日期、重复规则、主题及备份恢复可从对应面板或设置中操作。
+
+## 数据位置与备份
+
+Windows 程序目录为 `%LOCALAPPDATA%\Madis\Madis Todo`。任务和设置与程序分开存放：
 
 - Windows：`%LOCALAPPDATA%\top.madis.todo`
 - macOS：`~/Library/Application Support/top.madis.todo`
-- Linux：`$XDG_DATA_HOME/top.madis.todo`；未设置 XDG 时为 `~/.local/share/top.madis.todo`
+- Linux：`$XDG_DATA_HOME/top.madis.todo`；未设置有效绝对 XDG 路径时为 `~/.local/share/top.madis.todo`
 
-卸载默认保留数据库、设置和备份。用户数据不参与程序包替换，不因普通卸载而删除。
+可在设置中备份和恢复任务、重复系列及设置。卸载默认保留数据库、设置和备份；恢复前先保存当前数据的备份。
 
-## 更新与签名
+## 安装安全与隐私
 
-本项目已建立独立 Minisign 签名密钥，并将公开信任根配置在项目中；私钥只保存在加密凭据存储，不进入源码、安装包或本仓库。签名严格使用 `minisign -S -l` 原始 Ed 模式，同时验证消息与受信注释，拒绝未批准的签名模式。Minisign 更新签名不能代替平台原生签名或 Apple 公证。
+安装或升级前请备份已有数据。未经原生代码签名或 Apple 公证的安装包可能受到 Windows SmartScreen 或 macOS Gatekeeper 拦截；不要关闭全局系统安全策略。`SHA256SUMS` 仅用于检测下载损坏，不是数字签名。Minisign 更新签名不能代替平台原生签名或 Apple 公证。
 
-当前 `updates.state=client-implemented-service-disabled`、`enabled=false`：桌面后台检查、下载验签和退出安装助手已有实现及离线回归；真实 HTTPS 只读分发服务尚未部署，自动更新未启用。不会向普通客户端内嵌 GitHub/Gitee 私有访问 Token，也不会将私有仓地址误当作匿名可用更新服务。
-
-发布顺序为：验证各平台包 → 生成真实签名与绑定元数据 → 上传包和签名 → 回读名称、大小、摘要并验签 → **最后发布**更新元数据。任何失败都不更新稳定通道。安装前须保存数据、真正退出并释放锁，再交由独立安装进程处理，不自动重启应用。
-
-`release.config.json` 是机器可读配置：`packaging=verified` 仅表示上述候选打包回读；`implemented-not-verified` 表示代码已有但完整安装更新尚未验收；`not-verified` 表示对应验收仍未通过，不能混同。公钥非空不表示生产更新已经启用。
-
-## Gitee 镜像
-
-私有源码镜像和私有产品仓的 `main` 均已初始化。源码镜像按每 12 小时及手动触发设计，仅向已有 `main` 快进，不 force、不删除分支、不更改仓库可见性。自动镜像须在专用凭据登记、分支保护回读与真实同步成功后才算交付。
-
-产品镜像参照 Madis 其它项目管理：标签、标题与更新说明一致；Gitee 排除 `.AppImage` 及其独立签名，并生成不引用排除文件的校验清单。产品发布与客户端下载链路尚未完成验收。
+任务和设置保存在本地，不需要账号，不提供任务云同步。检查更新与下载安装包需要联网，但不上传任务内容。使用内置更新入口时，安装前须保存编辑内容并真正退出应用；安装后不自动重启。
