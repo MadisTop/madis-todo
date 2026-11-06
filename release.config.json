@@ -144,7 +144,7 @@
       "source": "madis/madis-todo-source",
       "distribution": "madis/madis-todo",
       "requiredVisibility": "private",
-      "provisioning": "private-created-main-pending",
+      "provisioning": "private-main-initialized",
       "sourceBranch": "main",
       "distributionBranch": "main"
     }

@@ -47,7 +47,7 @@ Windows 计划采用当前用户安装，程序目录为 `%LOCALAPPDATA%\Madis\M
 
 ## Gitee 私有仓状态
 
-目标 `madis/madis-todo-source` 与 `madis/madis-todo` 已在网页创建并通过锁图标核实为私有，SSH `ls-remote` 成功且确认是空仓。`gitee` remote 已添加，GitHub `origin` 未变；尚未 push `main`，`repositories.gitee.provisioning=private-created-main-pending`。首次创建远端 `main` 待用户明确授权，本任务不初始化、不推送；Secrets 配置/权限尚未确认，分支保护与自动同步未启用，不表示源码同步或产品发布已运行。
+目标 `madis/madis-todo-source` 与 `madis/madis-todo` 已建为私有仓。2026-11-06 已按授权首次推送并回读两个 `main`；`gitee` remote 保留，GitHub `origin` 未变；`repositories.gitee.provisioning=private-main-initialized`。这只表示仓库和主分支存在，不表示分支保护、CI 自动同步或 Gitee 产品发布已验收。
 
 源码镜像只面向已有 `main` 的快进更新，不创建分支、不 force、不更改可见性；产品仓不由源码同步写入。每 12 小时及手动同步的 CI 定义不等于已启用，须完成初始化、禁止删除保护及凭据最小权限核验后才能开启门禁。
 
@@ -55,11 +55,11 @@ Windows 计划采用当前用户安装，程序目录为 `%LOCALAPPDATA%\Madis\M
 
 build 仓提供逐包解包、Artifact 上传后下载回读、真实 Minisign 命令入口及严格门禁保护的现有空草稿部署脚本；其网络测试为模拟，不代表真实上传/签名/正式发布已完成。部署时包及签名先上传并回读，最后发布元数据；当前门禁会在联网前拒绝正式部署，不生成未验证的 updater 元数据。
 
-私有源码只读 `SOURCE_READ_TOKEN` 沿用既有计划，私有分发配置另需独立 `DISTRIBUTION_READ_TOKEN`；分别仅授权对应仓 Contents 只读，不能复用普通 job token 或扩大权限。2026-11-06 只读查询 build Secrets/Variables 名称列表均为空，未读取任何凭据值，也未创建/复制 Secret；真实最小权限仍需维护者核验。仍需外部提供完整打包工具、审核后的 RPM 许可信息、真实签名材料/受信公钥、可信端点与专用分发凭据，以及四平台安装/升级/卸载保留数据和客户端运行态安全更新验收。不得用参考仓 token、临时公开仓或未经授权安装系统工具替代。详细契约与命令见 build 仓《部署与验收.md》，三仓提交与正式发布分离，提交代码不等于发布产品。
+候选构建使用独立 `SOURCE_DEPLOY_KEY`、`DISTRIBUTION_DEPLOY_KEY` 和官方 `SOURCE_KNOWN_HOSTS`，两把部署密钥均由 GitHub 对应私有仓登记为只读；已通过本机 SSH 和真实 CI 检出验证。不使用普通 job token 跨私有仓，不复用 pk/json 的私钥。`RPM_LICENSE=LicenseRef-Proprietary` 已配置，Linux 使用固定官方 AppImage 工具并校验摘要。源码定时镜像仍需专用 Gitee 写凭据及保护规则核验，不能把构建的只读 SSH 密钥当作 HTTP token。生产更新采用已批准的独立 HTTPS 只读分发网关方向，但未提供/部署真实网关和独立签名信任根，运行态更新与安装助手尚未交付。
 
 
 ## 收尾状态
 
 2026-11-06 收尾：离线主体、重复标题/备份恢复/超量补齐/数据库别名等数据边界修复及发布门禁已回归；跨平台原生窗口、完整自动更新、安装升级及 Gitee 分发仍未完成。本仓保持未发布，不提供虚假下载/签名/验收结论。收尾顺序见源码仓 docs/收尾验收清单.md。
 
-本轮本机证据：Rust workspace 229 通过、0 失败，另 1 个受控崩溃 fixture；Node 48/48；fmt、严格 Clippy 与 Windows Release 通过。两个 Gitee 仓 SSH 只读复核成功且仍为空仓。更新入口/后台状态机/退出安装助手和 Gitee 产品 provider 属于代码未实现，不只缺配置；在客户端私有下载授权方案确认、材料和目标平台验收齐备之前，继续保持未发布。
+当前收尾证据以源码仓《收尾验收清单》为准。两个 Gitee 仓的 main 已初始化并可普通快进推送。四目标候选流水线正在按真实失败日志修复，不能将触发成功当作编译/安装验收成功。私有测试通道仅允许成功四目标候选新建草稿或显式预发布，绝不生成 latest、更新签名或改动仓库可见性；不能冒充正式安全更新交付。
