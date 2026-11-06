@@ -100,7 +100,7 @@
     "state": "templates-added-not-verified"
   },
   "updates": {
-    "state": "specification-only",
+    "state": "foundation-implemented-disabled",
     "signatureAlgorithm": "minisign",
     "trustedPublicKey": null,
     "signedBinding": [
@@ -128,9 +128,25 @@
     "requireExitBeforeInstall": true,
     "rejectUntrustedDowngrade": true,
     "enabled": false,
-    "updaterDependencyApproved": false,
+    "updaterDependencyApproved": true,
     "metadataEndpoint": null,
     "packageBaseUrl": null,
-    "metadataSchemaVersion": 1
+    "metadataSchemaVersion": 1,
+    "signatureMode": "minisign-legacy-ed"
+  },
+  "repositories": {
+    "github": {
+      "source": "MadisTop/madis-todo-source",
+      "build": "MadisTop/madis-todo-build",
+      "distribution": "MadisTop/madis-todo"
+    },
+    "gitee": {
+      "source": "madis/madis-todo-source",
+      "distribution": "madis/madis-todo",
+      "requiredVisibility": "private",
+      "provisioning": "private-created-main-pending",
+      "sourceBranch": "main",
+      "distributionBranch": "main"
+    }
   }
 }
