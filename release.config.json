@@ -28,7 +28,7 @@
       "packaging": "verified",
       "nativeSigning": "not-verified",
       "notarization": "not-applicable",
-      "updater": "not-implemented"
+      "updater": "implemented-not-verified"
     },
     {
       "id": "linux-x64",
@@ -48,7 +48,7 @@
       "packaging": "verified",
       "nativeSigning": "not-verified",
       "notarization": "not-applicable",
-      "updater": "not-implemented"
+      "updater": "implemented-not-verified"
     },
     {
       "id": "macos-x64",
@@ -66,7 +66,7 @@
       "packaging": "verified",
       "nativeSigning": "not-verified",
       "notarization": "not-verified",
-      "updater": "not-implemented"
+      "updater": "implemented-not-verified"
     },
     {
       "id": "macos-arm64",
@@ -84,7 +84,7 @@
       "packaging": "verified",
       "nativeSigning": "not-verified",
       "notarization": "not-verified",
-      "updater": "not-implemented"
+      "updater": "implemented-not-verified"
     }
   ],
   "installation": {
@@ -100,7 +100,7 @@
     "state": "templates-added-not-verified"
   },
   "updates": {
-    "state": "foundation-implemented-disabled",
+    "state": "client-implemented-service-disabled",
     "signatureAlgorithm": "minisign",
     "trustedPublicKey": "RWQnUGj3Pz2QKOnycw+oeknOdPFqNBvywcyu7M3xSCKH0VM/SCQyqQNM",
     "signedBinding": [

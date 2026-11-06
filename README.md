@@ -29,11 +29,11 @@ Windows 采用当前用户安装，程序目录为 `%LOCALAPPDATA%\Madis\Madis T
 
 本项目已建立独立 Minisign 签名密钥，并将公开信任根配置在项目中；私钥只保存在加密凭据存储，不进入源码、安装包或本仓库。签名严格使用 `minisign -S -l` 原始 Ed 模式，同时验证消息与受信注释，拒绝未批准的签名模式。Minisign 更新签名不能代替平台原生签名或 Apple 公证。
 
-当前 `updates.state=foundation-implemented-disabled`、`enabled=false`：桌面后台更新、退出后的安装助手与真实只读分发服务仍在开发，尚未启用。不会向普通客户端内嵌 GitHub/Gitee 私有访问 Token，也不会将私有仓地址误当作匿名可用更新服务。
+当前 `updates.state=client-implemented-service-disabled`、`enabled=false`：桌面后台检查、下载验签和退出安装助手已有实现及离线回归；真实 HTTPS 只读分发服务尚未部署，自动更新未启用。不会向普通客户端内嵌 GitHub/Gitee 私有访问 Token，也不会将私有仓地址误当作匿名可用更新服务。
 
 发布顺序为：验证各平台包 → 生成真实签名与绑定元数据 → 上传包和签名 → 回读名称、大小、摘要并验签 → **最后发布**更新元数据。任何失败都不更新稳定通道。安装前须保存数据、真正退出并释放锁，再交由独立安装进程处理，不自动重启应用。
 
-`release.config.json` 是机器可读配置：`packaging=verified` 仅表示上述候选打包回读；`not-verified` 与 `not-implemented` 分别表示尚未验收和尚未实现，不能混同。公钥非空不表示生产更新已经启用。
+`release.config.json` 是机器可读配置：`packaging=verified` 仅表示上述候选打包回读；`implemented-not-verified` 表示代码已有但完整安装更新尚未验收；`not-verified` 表示对应验收仍未通过，不能混同。公钥非空不表示生产更新已经启用。
 
 ## Gitee 镜像
 
