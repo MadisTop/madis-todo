@@ -7,9 +7,9 @@
   "binary": "madis-todo-desktop",
   "packagePrefix": "madis-todo",
   "release": {
-    "state": "stable-published",
-    "version": "0.1.2",
-    "latestPublished": true,
+    "state": "approved-for-stable-publication",
+    "version": "0.1.3",
+    "latestPublished": false,
     "endToEndVerified": false
   },
   "targets": [
@@ -101,15 +101,12 @@
     "state": "templates-added-not-verified"
   },
   "updates": {
-    "state": "client-implemented-service-disabled",
+    "state": "signed-public-release-service",
     "signatureAlgorithm": "minisign",
     "trustedPublicKey": "RWQnUGj3Pz2QKOnycw+oeknOdPFqNBvywcyu7M3xSCKH0VM/SCQyqQNM",
     "signedBinding": [
       "identifier",
       "version",
-      "sourceSha",
-      "buildSha",
-      "distributionSha",
       "target",
       "os",
       "arch",
@@ -128,12 +125,14 @@
     ],
     "requireExitBeforeInstall": true,
     "rejectUntrustedDowngrade": true,
-    "enabled": false,
+    "enabled": true,
     "updaterDependencyApproved": true,
-    "metadataEndpoint": null,
-    "packageBaseUrl": null,
-    "metadataSchemaVersion": 1,
-    "signatureMode": "minisign-legacy-ed"
+    "metadataEndpoint": "https://raw.githubusercontent.com/MadisTop/madis-todo/main/update-metadata.json",
+    "packageBaseUrl": "https://github.com/MadisTop/madis-todo/releases/latest/download/",
+    "metadataSchemaVersion": 2,
+    "signatureMode": "minisign-legacy-ed",
+    "automaticInstall": true,
+    "restartAfterInstall": true
   },
   "repositories": {
     "github": {
@@ -154,11 +153,13 @@
   },
   "versionPolicy": {
     "enabled": true,
-    "graceDays": 14,
     "initialCheckSeconds": 15,
     "requireIdle": true,
     "signatureMode": "minisign-legacy-ed",
-    "metadataEndpoint": "https://github.com/MadisTop/madis-todo/releases/latest/download/version-policy.json",
-    "fallbackEndpoint": "https://gitee.com/madis/madis-todo/raw/main/version-policy.json"
+    "metadataEndpoint": "https://github.com/MadisTop/madis-todo/releases/latest/download/version-policy-v2.json",
+    "fallbackEndpoint": "https://gitee.com/madis/madis-todo/raw/main/version-policy-v2.json",
+    "schemaVersion": 2,
+    "oldVersionDeadline": "one-calendar-month",
+    "offlineGraceDays": 14
   }
 }
