@@ -7,30 +7,10 @@
   "binary": "madis-todo-desktop",
   "packagePrefix": "madis-todo",
   "release": {
-    "state": "unpublished",
-    "version": null,
+    "state": "approved-for-stable-publication",
+    "version": "0.1.1",
     "latestPublished": false,
-    "endToEndVerified": false,
-    "test": {
-      "tag": "v0.1.0-test.1",
-      "version": "0.1.0",
-      "sourceSha": "b774d3c9fcf3946eabb51a822f9122821819f0cd",
-      "buildSha": "0d9018197bac9b39cf7b083df5aee254e89f17b4",
-      "distributionSha": "684c016da9141558da17cd0bfcd0ddd7068d0b2e",
-      "packageRunId": "42182592789",
-      "private": true,
-      "github": {
-        "state": "published-readback-verified",
-        "releaseId": 436249165,
-        "assetCount": 10
-      },
-      "gitee": {
-        "state": "published-readback-verified",
-        "releaseId": 1279885,
-        "assetCount": 9,
-        "publishRunId": "42193063324"
-      }
-    }
+    "endToEndVerified": false
   },
   "targets": [
     {
@@ -110,13 +90,13 @@
   ],
   "installation": {
     "windowsScope": "current-user",
-    "windowsDirectory": "%LOCALAPPDATA%\\Madis\\Madis Todo",
+    "windowsDirectory": "%LOCALAPPDATA%\\Programs\\Madis\\Todo",
     "uninstallPreserveUserData": true,
     "dataDirectories": {
-      "windows": "%LOCALAPPDATA%\\top.madis.todo",
-      "macos": "~/Library/Application Support/top.madis.todo",
-      "linux": "$XDG_DATA_HOME/top.madis.todo",
-      "linuxFallback": "~/.local/share/top.madis.todo"
+      "windows": "%LOCALAPPDATA%\\Madis\\Todo\\Data",
+      "macos": "~/Library/Application Support/Madis/Todo/Data",
+      "linux": "$XDG_DATA_HOME/Madis/Todo/Data",
+      "linuxFallback": "~/.local/share/Madis/Todo/Data"
     },
     "state": "templates-added-not-verified"
   },
@@ -164,10 +144,21 @@
     "gitee": {
       "source": "madis/madis-todo-source",
       "distribution": "madis/madis-todo",
-      "requiredVisibility": "private",
+      "requiredVisibility": "source-private-distribution-public",
       "provisioning": "private-main-initialized",
       "sourceBranch": "main",
-      "distributionBranch": "main"
+      "distributionBranch": "main",
+      "sourceVisibility": "private",
+      "distributionVisibility": "public"
     }
+  },
+  "versionPolicy": {
+    "enabled": true,
+    "graceDays": 14,
+    "initialCheckSeconds": 15,
+    "requireIdle": true,
+    "signatureMode": "minisign-legacy-ed",
+    "metadataEndpoint": "https://github.com/MadisTop/madis-todo/releases/latest/download/version-policy.json",
+    "fallbackEndpoint": "https://gitee.com/madis/madis-todo/raw/main/version-policy.json"
   }
 }
