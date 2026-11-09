@@ -7,9 +7,9 @@
   "binary": "madis-todo-desktop",
   "packagePrefix": "madis-todo",
   "release": {
-    "state": "approved-for-stable-publication",
+    "state": "stable-published",
     "version": "0.1.2",
-    "latestPublished": false,
+    "latestPublished": true,
     "endToEndVerified": false
   },
   "targets": [
