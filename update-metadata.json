@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 2,
+  "identifier": "top.madis.todo",
+  "version": "0.1.3",
+  "packages": [
+    {
+      "target": "windows-x64",
+      "os": "windows",
+      "arch": "x86_64",
+      "format": "nsis",
+      "name": "madis-todo_0.1.3_windows-x64-setup.exe",
+      "size": 5688394,
+      "sha256": "dcde6db1697bc2a520dc47ba75d270ac71d7e925b045eb7e2680b6945309f9be",
+      "url": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_windows-x64-setup.exe",
+      "signature": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_windows-x64-setup.exe.minisig"
+    },
+    {
+      "target": "windows-x64",
+      "os": "windows",
+      "arch": "x86_64",
+      "format": "msi",
+      "name": "madis-todo_0.1.3_windows-x64.msi",
+      "size": 6684672,
+      "sha256": "c0ec01fc0bf3205aece84a90e8c7f6d4b6eb589c9b897075200b82c21c240ef1",
+      "url": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_windows-x64.msi",
+      "signature": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_windows-x64.msi.minisig"
+    },
+    {
+      "target": "linux-x64",
+      "os": "linux",
+      "arch": "x86_64",
+      "format": "appimage",
+      "name": "madis-todo_0.1.3_linux-x64.AppImage",
+      "size": 10480120,
+      "sha256": "0bc67cdeb0fb4d7aa33702b2012e45ca876967c9b1dff482694c069fa7f7ac48",
+      "url": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_linux-x64.AppImage",
+      "signature": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_linux-x64.AppImage.minisig"
+    },
+    {
+      "target": "linux-x64",
+      "os": "linux",
+      "arch": "x86_64",
+      "format": "deb",
+      "name": "madis-todo_0.1.3_linux-x64.deb",
+      "size": 6908418,
+      "sha256": "433c1329d86282d97650d94df99b43fba710428adb1f67c246ea43e8853092fd",
+      "url": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_linux-x64.deb",
+      "signature": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_linux-x64.deb.minisig"
+    },
+    {
+      "target": "linux-x64",
+      "os": "linux",
+      "arch": "x86_64",
+      "format": "rpm",
+      "name": "madis-todo_0.1.3_linux-x64.rpm",
+      "size": 8377286,
+      "sha256": "a33e4b6fb5cac2242c7c2bfdbd64374b32130dce180586e26021b36112a129cb",
+      "url": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_linux-x64.rpm",
+      "signature": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_linux-x64.rpm.minisig"
+    },
+    {
+      "target": "macos-x64",
+      "os": "macos",
+      "arch": "x86_64",
+      "format": "dmg",
+      "name": "madis-todo_0.1.3_macos-x64.dmg",
+      "size": 7582753,
+      "sha256": "6a07310473d9c507c813663c79bb1c105760ee100a4d5a0de7d026b2826744ba",
+      "url": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_macos-x64.dmg",
+      "signature": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_macos-x64.dmg.minisig"
+    },
+    {
+      "target": "macos-x64",
+      "os": "macos",
+      "arch": "x86_64",
+      "format": "app.tar.gz",
+      "name": "madis-todo_0.1.3_macos-x64.app.tar.gz",
+      "size": 7127994,
+      "sha256": "8345a7592d4269a3809cb44a73a6233efecf8b1258458fb3d69ceeae70dd1eae",
+      "url": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_macos-x64.app.tar.gz",
+      "signature": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_macos-x64.app.tar.gz.minisig"
+    },
+    {
+      "target": "macos-arm64",
+      "os": "macos",
+      "arch": "aarch64",
+      "format": "dmg",
+      "name": "madis-todo_0.1.3_macos-arm64.dmg",
+      "size": 7091822,
+      "sha256": "cc503f7195832b03d8c46994aca46de229761e95185f1c7e71b45357b56b6c69",
+      "url": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_macos-arm64.dmg",
+      "signature": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_macos-arm64.dmg.minisig"
+    },
+    {
+      "target": "macos-arm64",
+      "os": "macos",
+      "arch": "aarch64",
+      "format": "app.tar.gz",
+      "name": "madis-todo_0.1.3_macos-arm64.app.tar.gz",
+      "size": 6724399,
+      "sha256": "c9d7fdf4d5724c0ddb931a4207e3a4e204c3f620f7aaba46592281452e4af832",
+      "url": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_macos-arm64.app.tar.gz",
+      "signature": "https://github.com/MadisTop/madis-todo/releases/latest/download/madis-todo_0.1.3_macos-arm64.app.tar.gz.minisig"
+    }
+  ]
+}

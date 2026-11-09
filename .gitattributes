@@ -1,2 +1,6 @@
 version-policy.json -text
 version-policy.json.minisig -text
+version-policy-v2.json -text
+version-policy-v2.json.minisig -text
+update-metadata.json -text
+update-metadata.json.minisig -text
