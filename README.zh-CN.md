@@ -15,7 +15,7 @@ Madis Todo：基于 Rust、Slint 和 SQLite 的轻量离线待办应用，支持
 
 Linux 图形会话使用 X11 或 XWayland。选择与系统及处理器架构匹配的安装包，各下载入口提供的格式以对应版本的附件列表为准。
 
-安装包命名为 `madis-todo_<版本>_<目标><格式后缀>`，例如 `madis-todo_0.1.0_windows-x64-setup.exe`；内部可执行文件仍为 `madis-todo-desktop`，不因安装包改名而变更程序目录或数据位置。各版本实际附件以发布页面为准。
+安装包命名为 `madis-todo_<版本>_<目标><格式后缀>`，例如 `madis-todo_0.1.0_windows-x64-setup.exe`；后续构建的内部可执行文件统一为 `madis-todo`，不因安装包改名而变更程序目录或数据位置。各版本实际附件以发布页面为准。
 
 ## 下载入口
 
@@ -33,7 +33,7 @@ Linux 图形会话使用 X11 或 XWayland。选择与系统及处理器架构匹
 
 ## 数据位置与备份
 
-Windows 默认程序目录为 `%LOCALAPPDATA%\Programs\Madis\Todo`。NSIS 沿用已登记的合法安装目录。MSI 仅自动沿用含 `madis-todo-desktop.exe` 的已登记地址，或旧默认 `%LOCALAPPDATA%\Madis\Madis Todo`；旧 MSI 未记录的自定义地址不能自动恢复，需用 `msiexec /i 安装包.msi INSTALLFOLDER="原安装目录"` 显式指定且该目录包含上述 EXE，否则拒绝升级，不静默换址。应用标识始终为 `top.madis.todo`。安装模式数据库路径：
+Windows 默认程序目录为 `%LOCALAPPDATA%\Programs\Madis\Todo`。NSIS 沿用已登记的合法安装目录。MSI 仅自动沿用含新程序 `madis-todo.exe` 或旧程序 `madis-todo-desktop.exe` 的已登记地址，或旧默认 `%LOCALAPPDATA%\Madis\Madis Todo`；旧 MSI 未记录的自定义地址不能自动恢复，需用 `msiexec /i 安装包.msi INSTALLFOLDER="原安装目录"` 显式指定且该目录包含对应新旧 EXE，否则拒绝升级，不静默换址。应用标识始终为 `top.madis.todo`。安装模式数据库路径：
 
 | 平台 | 数据库 |
 | --- | --- |
@@ -55,7 +55,7 @@ Windows 默认程序目录为 `%LOCALAPPDATA%\Programs\Madis\Todo`。NSIS 沿用
 - 便携模式仍可检查更新并打开官方下载页，但不下载/调用 NSIS、MSI 等安装型 Updater；手动更新程序时保留完整 Data。
 - `--data-file <路径>` 仍可指定独立数据库，相对路径按工作目录解析；其自启动保留解析后的绝对数据路径。该参数与开关或 marker 便携模式同时指定时明确拒绝冲突。
 
-例如：`madis-todo-desktop.exe --portable`。不附加 `--portable` 且无 marker 时使用安装模式路径。
+例如：`madis-todo.exe --portable`。不附加 `--portable` 且无 marker 时使用安装模式路径。
 
 ### 一次性迁移旧数据
 
@@ -74,3 +74,7 @@ v0.1.3 起，启动约 15 秒后在空闲时后台检查签名更新元数据，
 旧版按一个 UTC 自然月截止，月底裁剪且保留时分秒；已有签名历史截止不延长。离线另有 14 天宽限，仅成功在线验签才刷新，重启、缓存读取与联网失败不会续期。截止后仍可查看和备份数据、打开官方下载页，但新增、修改、删除和恢复数据等写入操作受限。最新版不因单次联网失败立即过期，失败会退避重试。版本检查不上传任务内容。
 
 v0.1.1/v0.1.2 未启用安装型自动更新，首次请手动安装 v0.1.3；本版起才能接收后续签名自动更新。
+
+程序命名统一为 `madis-todo`，Windows 安装后为 `madis-todo.exe`，不再生成带 `desktop` 的程序副本。应用标识、安装目录、数据库及备份路径不变；NSIS 在原安装目录锁定、备份并事务式移除旧名文件，失败时还原，MSI 仍识别新旧两种程序名以沿用原地址。旧名只保留在旧版识别和历史验收记录中。
+
+首次从 v0.1.3 及更早版本升级到改名版本，建议手动下载并安装；v0.1.3 已编译的更新助手把原可执行路径作为重启目标，不能从新版本追溯修复，自动安装完成后可能需要手动启动新程序。不要为此保留或生成旧名 EXE。后续使用新名称的版本继续按现有自动更新流程安装并重启；本次改名本身不代表已经发布新版。

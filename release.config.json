@@ -4,7 +4,7 @@
   "displayName": "Madis Todo",
   "publisher": "Madis",
   "identifier": "top.madis.todo",
-  "binary": "madis-todo-desktop",
+  "binary": "madis-todo",
   "packagePrefix": "madis-todo",
   "release": {
     "state": "approved-for-stable-publication",
