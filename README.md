@@ -43,7 +43,7 @@ Starting with v0.1.3, the application checks signed update metadata about 15 sec
 
 A superseded version expires after one UTC calendar month, with month-end clipping; existing signed historical deadlines are never extended. Offline verification has a separate 14-day grace period, refreshed only by successful online signed-policy verification. Viewing, backup and the official download page remain available after restrictions begin. A single failed network check does not immediately expire the latest version; failures retry with backoff.
 
-Versions v0.1.1 and v0.1.2 did not enable installation-based updates. When upgrading from v0.1.3 or earlier, install the current v0.1.5 package manually to switch to the new executable name.
+Versions v0.1.1 and v0.1.2 did not enable installation-based updates. When upgrading from v0.1.3 or earlier, install the current v0.1.6 package manually to switch to the new executable name.
 
 ## Safety and privacy
 
