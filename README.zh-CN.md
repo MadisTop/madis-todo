@@ -41,7 +41,7 @@ Windows 默认程序目录为 `%LOCALAPPDATA%\Programs\Madis\Todo`。NSIS 沿用
 | macOS | `~/Library/Application Support/Madis/Todo/Data/todo.sqlite3` |
 | Linux | 有效绝对 `$XDG_DATA_HOME/Madis/Todo/Data/todo.sqlite3`，否则 `~/.local/share/Madis/Todo/Data/todo.sqlite3` |
 
-`Data` 的父目录是产品数据基目录，`State`、`Cache`、`Logs` 是其按需创建的子目录；更新临时数据只放 `Cache/updates`，不混入数据库。本产品为原生 Slint，无 WebView 数据目录。设置中可查看实际数据库位置并打开所在目录。
+`Data` 的父目录是产品数据基目录，`State`、`Cache`、`Logs` 是其按需创建的子目录；更新临时数据只放 `Cache/updates`，不混入数据库；安装结果固定在 `Cache/updates/install-result.txt`，成功的暂存目录在安装后和下次启动时自动回收。本产品为原生 Slint，无 WebView 数据目录。设置中可查看实际数据库位置并打开所在目录。
 
 可在设置中备份和恢复任务、重复系列及设置。卸载默认保留数据库、设置和备份，不递归删除 Madis 共享父目录；恢复前先保存当前数据的备份。不自动探测旧 identifier 路径或搬迁用户目录。
 
